@@ -6,7 +6,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-hairline-dark bg-ink-950 pb-28 pt-20 text-white/55 lg:pb-20">
+    <footer className="border-t border-hairline-dark bg-ink-950 pb-28 pt-14 lg:pt-16 text-white/55 lg:pb-20">
       <div className="container-x">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
@@ -103,7 +103,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-hairline-dark pt-8 text-xs sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-hairline-dark pt-8 text-xs sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name} · Org.nr. {site.orgnr} MVA
           </p>

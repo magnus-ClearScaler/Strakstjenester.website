@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <>
       <section className="bg-ink-950 pt-20">
-        <div className="container-x grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-16 lg:py-28">
+        <div className="container-x grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-16 lg:py-20">
           <div>
             <p className="eyebrow-light">
               {site.experience} · Oslo og omegn

@@ -4,7 +4,7 @@ import { PhoneIcon, MailIcon } from "./Icons";
 
 export default function About() {
   return (
-    <section id="om-oss" className="scroll-mt-24 bg-sand py-24 sm:py-32">
+    <section id="om-oss" className="scroll-mt-24 bg-sand py-14 sm:py-16">
       <div className="container-x">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="relative aspect-[4/3] overflow-hidden rounded-edge">

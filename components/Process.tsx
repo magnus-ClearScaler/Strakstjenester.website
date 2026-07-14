@@ -25,7 +25,7 @@ export default function Process() {
   return (
     <section
       id="prosess"
-      className="scroll-mt-24 border-y border-hairline bg-sand-dark py-24 sm:py-32"
+      className="scroll-mt-24 border-y border-hairline bg-sand-dark py-14 sm:py-16"
     >
       <div className="container-x">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
@@ -43,7 +43,7 @@ export default function Process() {
           </p>
         </div>
 
-        <ol className="mt-16 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-10 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <li key={step.n} className="border-t border-ink-950/15 py-8">
               <span className="font-display text-xs font-bold tracking-[0.14em] text-brand-800">

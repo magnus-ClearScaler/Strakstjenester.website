@@ -32,7 +32,7 @@ const details = [
 
 export default function Contact() {
   return (
-    <section id="kontakt" className="scroll-mt-24 bg-ink-950 py-24 sm:py-32">
+    <section id="kontakt" className="scroll-mt-24 bg-ink-950 py-14 sm:py-16">
       <div className="container-x">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-20">
           <div>

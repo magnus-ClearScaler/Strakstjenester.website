@@ -14,7 +14,7 @@ export default function Faq() {
   return (
     <section
       id="sporsmal"
-      className="scroll-mt-24 border-t border-hairline bg-sand py-24 sm:py-32"
+      className="scroll-mt-24 border-t border-hairline bg-sand py-14 sm:py-16"
     >
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">

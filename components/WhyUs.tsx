@@ -27,7 +27,7 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="bg-ink-950 py-24 sm:py-32">
+    <section className="bg-ink-950 py-14 sm:py-16">
       <div className="container-x">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
           <div>
@@ -44,7 +44,7 @@ export default function WhyUs() {
           </p>
         </div>
 
-        <ul className="mt-16 grid gap-x-12 gap-y-px sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-x-12 gap-y-px sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r, i) => (
             <li
               key={r.title}

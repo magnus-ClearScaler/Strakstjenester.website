@@ -49,7 +49,7 @@ function Card({ service }: { service: Service }) {
 
 export default function Services() {
   return (
-    <section id="tjenester" className="scroll-mt-24 bg-sand py-24 sm:py-32">
+    <section id="tjenester" className="scroll-mt-24 bg-sand py-14 sm:py-16">
       <div className="container-x">
         {/* Todelt seksjonstittel: overskrift til venstre, brødtekst til høyre */}
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
@@ -68,7 +68,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <Card key={service.slug} service={service} />
           ))}
