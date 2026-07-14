@@ -8,7 +8,7 @@ export const site = {
   shortName: "Straks Tjenester",
   orgnr: "928 659 720",
   url: "https://www.strakstjenester.no",
-  tagline: "Transport, rydding og avfallshåndtering i Oslo",
+  tagline: "Avfallshåndtering, riving og rydding i Oslo",
   founded: "2022",
 
   phone: {
@@ -67,20 +67,6 @@ export type Service = {
 };
 
 export const services: Service[] = [
-  {
-    slug: "transport",
-    title: "Transport og flytting",
-    short: "Henting, levering og flytting i hele Oslo-området.",
-    body: "Vi frakter alt fra enkeltmøbler til hele husholdninger. Egne biler, erfarne folk og forsikret transport – vi henter der det passer deg og leverer der det skal.",
-    bullets: [
-      "Flyttehjelp for privat og bedrift",
-      "Henting og levering samme dag",
-      "Bæring, sikring og emballering",
-    ],
-    image: "/bilder/transport.webp",
-    imageAlt:
-      "Stue midt i en flytteprosess med stablede flyttekasser klare for transport",
-  },
   {
     slug: "avfallshandtering",
     title: "Avfallshåndtering",
@@ -144,6 +130,20 @@ export const services: Service[] = [
     ],
     image: "/bilder/mobelmontering.webp",
     imageAlt: "Håndverker som monterer en sengeramme med skrutrekker",
+  },
+  {
+    slug: "transport",
+    title: "Transport og flytting",
+    short: "Henting, levering og flytting i hele Oslo-området.",
+    body: "Vi frakter alt fra enkeltmøbler til hele husholdninger. Egne biler, erfarne folk og forsikret transport – vi henter der det passer deg og leverer der det skal.",
+    bullets: [
+      "Flyttehjelp for privat og bedrift",
+      "Henting og levering samme dag",
+      "Bæring, sikring og emballering",
+    ],
+    image: "/bilder/transport.webp",
+    imageAlt:
+      "Stue midt i en flytteprosess med stablede flyttekasser klare for transport",
   },
 ];
 

@@ -14,20 +14,20 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} – Transport, rydding og avfallshåndtering i Oslo`,
+    default: `${site.name} – Avfallshåndtering, riving og rydding i Oslo`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Straks Tjenester AS hjelper deg med transport, rydding, riving, rengjøring og avfallshåndtering i Oslo og omegn. Uforpliktende pristilbud – og 15 % rabatt på første oppdrag.",
+    "Straks Tjenester AS tar avfallshåndtering, riving, rydding, rengjøring og transport i Oslo og omegn. Vi kjører bort alt og leverer til godkjent mottak. Uforpliktende pristilbud – og 15 % rabatt på første oppdrag.",
   keywords: [
-    "transport Oslo",
     "avfallshåndtering Oslo",
-    "bortkjøring av avfall",
+    "bortkjøring av avfall Oslo",
     "riving Oslo",
+    "rydding og bortkjøring",
+    "containerutleie alternativ Oslo",
     "dødsbo tømming Oslo",
     "hageavfall bortkjøring",
-    "flyttehjelp Oslo",
-    "møbelmontering Oslo",
+    "transport Oslo",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} – Transport, rydding og avfallshåndtering i Oslo`,
+    title: `${site.name} – Avfallshåndtering, riving og rydding i Oslo`,
     description:
-      "Vi rydder, kjører bort og gjør unna jobben – straks. Uforpliktende pristilbud i Oslo og omegn.",
+      "Vi river, rydder og kjører bort avfallet – straks. Uforpliktende pristilbud i Oslo og omegn.",
     images: [
       {
-        url: "/bilder/hero-transport.webp",
+        url: "/bilder/hero-riving.webp",
         width: 1200,
         height: 630,
-        alt: "Straks Tjenester AS – transport og bortkjøring i Oslo",
+        alt: "Straks Tjenester AS – riving, rydding og bortkjøring i Oslo",
       },
     ],
   },
@@ -67,11 +67,11 @@ function structuredData() {
     "@id": `${site.url}/#organisasjon`,
     name: site.name,
     description:
-      "Transport, rydding, riving, rengjøring og avfallshåndtering i Oslo og omegn.",
+      "Avfallshåndtering, riving, rydding, rengjøring og transport i Oslo og omegn.",
     url: site.url,
     telephone: `+47${site.phone.primary.display.replace(/\s/g, "")}`,
     email: site.email,
-    image: `${site.url}/bilder/hero-transport.webp`,
+    image: `${site.url}/bilder/hero-riving.webp`,
     logo: `${site.url}/logo.webp`,
     foundingDate: site.founded,
     vatID: `NO${site.orgnr.replace(/\s/g, "")}MVA`,

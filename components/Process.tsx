@@ -25,7 +25,7 @@ export default function Process() {
   return (
     <section
       id="prosess"
-      className="scroll-mt-24 border-y border-hairline bg-sand-dark py-14 sm:py-16"
+      className="scroll-mt-24 bg-sand-dark py-14 sm:py-16"
     >
       <div className="container-x">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
