@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Merkevarefarger (hentet fra eksisterende logo/profil) ---- */
+  --color-brand-50: #fef4ea;
+  --color-brand-100: #fde6d2;
+  --color-brand-200: #fbcaa2;
+  --color-brand-300: #f9ab6d;
+  --color-brand-400: #f79445;
+  --color-brand-500: #f5821f; /* primær */
+  --color-brand-600: #e06f12;
+  --color-brand-700: #bc5b08; /* hover / dyp */
+  --color-brand-800: #94480a;
+  --color-brand-900: #783c0d;
+
+  --color-ink-500: #616161;
+  --color-ink-600: #4a4a4a;
+  --color-ink-700: #333333;
+  --color-ink-800: #202020; /* profilens mørke */
+  --color-ink-900: #161719;
+  --color-ink-950: #0d0e10;
+
+  --color-surface: #f9f9f9;
+  --color-hairline: #e7e7e7;
+
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1rem;
+
+  --shadow-lift: 0 1px 2px rgb(13 14 16 / 0.04), 0 8px 24px -8px rgb(13 14 16 / 0.12);
+  --shadow-lift-lg: 0 2px 4px rgb(13 14 16 / 0.04), 0 24px 48px -12px rgb(13 14 16 / 0.18);
+
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* kompenserer for sticky header ved ankerlenker */
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-white text-ink-700 font-sans antialiased;
+    /* plass til sticky ring-baren på mobil */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Tydelig fokusmarkering – tilgjengelighet */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-700;
+  }
+
+  ::selection {
+    @apply bg-brand-500 text-white;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Overskrift-etikett over seksjonstitler */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-800;
+  }
+}
+
+/* Respekter brukerens bevegelsespreferanser */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
