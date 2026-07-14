@@ -20,7 +20,7 @@ const steps = [
   {
     n: "04",
     title: "Jobben er gjort",
-    body: "Vi utfører oppdraget, rydder etter oss og leverer avfallet til godkjent mottak. Du trenger ikke løfte en finger.",
+    body: "Vi utfører oppdraget, rydder etter oss og leverer avfallet til godkjent mottak. Kvittering kan fremlegges ved behov.",
   },
 ];
 
@@ -37,8 +37,7 @@ export default function Process() {
             til ferdig jobb.
           </h2>
           <p className="mt-6 max-w-sm text-lg leading-relaxed text-ink-600">
-            Ingen kompliserte prosesser, ingen ventetid på svar. Fire steg, så
-            er problemet ditt vårt.
+            Fire steg fra første henvendelse til ferdig levert avfall.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">

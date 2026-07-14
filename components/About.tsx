@@ -21,22 +21,22 @@ export default function About() {
           <div>
             <p className="eyebrow">Hvem er vi?</p>
             <h2 className="mt-5 text-4xl font-extrabold sm:text-5xl">
-              En lokal partner,
+              Oslo-basert,
               <br />
-              ikke bare en leverandør.
+              med 20 år i bransjen.
             </h2>
 
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink-600">
               <p>
-                Straks Tjenester AS ble etablert i {site.founded}, men folkene
-                bak har over 20 års erfaring fra bransjen. Vi har betjent Oslo
-                og omegn med stolthet siden dag én.
+                Straks Tjenester AS er et norsk aksjeselskap stiftet i{" "}
+                {site.founded}, med base på Beverkollen i Oslo. Personellet har
+                over 20 års samlet erfaring fra transport, riving og
+                avfallshåndtering.
               </p>
               <p>
-                Vi går utover det å være en ren tjenesteleverandør. Teamet vårt
-                jobber hardt for at hver eneste oppgave blir utført med høyeste
-                standard – enten det er en enkelt bortkjøring eller et større
-                riveprosjekt.
+                Vi tar oppdrag for både privatpersoner og bedrifter – fra én
+                enkelt bortkjøring til riving og rydding av hele lokaler – og
+                håndterer avfallet fra henting til levering ved godkjent mottak.
               </p>
             </div>
 
