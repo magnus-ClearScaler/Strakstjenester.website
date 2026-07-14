@@ -1,5 +1,5 @@
 import { site } from "@/lib/site";
-import { PhoneIcon, ArrowIcon } from "./Icons";
+import { PhoneIcon } from "./Icons";
 
 /**
  * Fast handlingslinje nederst på mobil.
@@ -8,21 +8,14 @@ import { PhoneIcon, ArrowIcon } from "./Icons";
  */
 export default function StickyCall() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-white/95 backdrop-blur-md lg:hidden">
-      <div className="flex gap-3 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3">
-        <a
-          href={site.phone.primary.href}
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-ink-900/15 px-4 py-3.5 font-semibold text-ink-900"
-        >
-          <PhoneIcon className="size-5" />
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-sand/95 backdrop-blur-md lg:hidden">
+      <div className="flex gap-2.5 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3">
+        <a href={site.phone.primary.href} className="btn-outline flex-1 px-4">
+          <PhoneIcon className="size-4" />
           Ring oss
         </a>
-        <a
-          href="#kontakt"
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-brand-700 px-4 py-3.5 font-semibold text-white"
-        >
+        <a href="#kontakt" className="btn-brand flex-1 px-4">
           Få pristilbud
-          <ArrowIcon className="size-4" />
         </a>
       </div>
     </div>

@@ -1,137 +1,88 @@
 import Image from "next/image";
 import { services, type Service } from "@/lib/site";
-import { CheckIcon, ArrowIcon, SparkleIcon } from "./Icons";
+import { ArrowIcon } from "./Icons";
 
-function PhotoCard({ service }: { service: Service }) {
+function Card({ service }: { service: Service }) {
+  const hasPhoto = Boolean(service.image);
+
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-card border border-hairline bg-white shadow-lift transition-all duration-300 hover:-translate-y-1 hover:shadow-lift-lg">
-      <div className="relative aspect-[16/10] overflow-hidden bg-surface">
-        <Image
-          src={service.image!}
-          alt={service.imageAlt ?? ""}
-          fill
-          loading="lazy"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+    <a
+      href="#kontakt"
+      className="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-edge bg-ink-950 p-6 sm:p-7"
+    >
+      {hasPhoto ? (
+        <>
+          <Image
+            src={service.image!}
+            alt={service.imageAlt ?? ""}
+            fill
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/10" />
+        </>
+      ) : (
+        // Rengjøring har ikke eget foto ennå – ren flate i stedet for feil bilde.
+        <span
+          aria-hidden
+          className="absolute inset-0 bg-[radial-gradient(120%_100%_at_0%_100%,#94480a_0%,#14181f_65%)]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/45 to-transparent" />
-      </div>
+      )}
 
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-xl font-bold">{service.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-ink-500">
-          {service.body}
-        </p>
-
-        <ul className="mt-5 space-y-2">
-          {service.bullets.map((b) => (
-            <li key={b} className="flex items-start gap-2.5 text-sm text-ink-700">
-              <CheckIcon className="mt-0.5 size-4 shrink-0 text-brand-700" />
-              {b}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </article>
-  );
-}
-
-/** Fremhevet kort i merkevarefargen – brukes der vi ikke har eget foto ennå. */
-function AccentCard({ service }: { service: Service }) {
-  return (
-    <article className="group relative flex flex-col overflow-hidden rounded-card bg-brand-700 shadow-lift transition-all duration-300 hover:-translate-y-1 hover:shadow-lift-lg">
-      {/* Dekorative sirkler gir kortet dybde uten et bilde */}
-      <div
-        aria-hidden
-        className="absolute -right-16 -top-16 size-56 rounded-full bg-white/10"
-      />
-      <div
-        aria-hidden
-        className="absolute -bottom-20 -left-10 size-48 rounded-full bg-ink-950/10"
-      />
-
-      <div className="relative flex flex-1 flex-col p-6">
-        <span className="inline-flex size-11 items-center justify-center rounded-full bg-white/20 text-white">
-          <SparkleIcon className="size-6" />
-        </span>
-
-        <h3 className="mt-5 font-display text-xl font-bold text-white">
+      <div className="relative">
+        <span className="eyebrow-light">Oslo og omegn</span>
+        <h3 className="mt-2.5 font-display text-2xl font-bold text-white">
           {service.title}
         </h3>
-        {/* Full hvit, ikke nedtonet: hvit på merkevareoransje ligger allerede
-            på 4.53:1, og enhver gjennomsiktighet ville falt under AA-kravet. */}
-        <p className="mt-2 text-sm leading-relaxed text-white">
-          {service.body}
+        <p className="mt-1.5 max-w-xs text-sm leading-relaxed text-white/60">
+          {service.short}
         </p>
-
-        <ul className="mt-5 space-y-2">
-          {service.bullets.map((b) => (
-            <li
-              key={b}
-              className="flex items-start gap-2.5 text-sm font-medium text-white"
-            >
-              <CheckIcon className="mt-0.5 size-4 shrink-0 text-white" />
-              {b}
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href="#kontakt"
-          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white underline-offset-4 hover:underline"
-        >
-          Be om pris på rengjøring
-          <ArrowIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
-        </a>
+        <span className="mt-4 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-400">
+          Be om pris
+          <ArrowIcon className="size-4 transition-transform group-hover:translate-x-1" />
+        </span>
       </div>
-    </article>
+    </a>
   );
 }
 
 export default function Services() {
   return (
-    <section id="tjenester" className="scroll-mt-24 bg-surface py-20 sm:py-28">
+    <section id="tjenester" className="scroll-mt-24 bg-sand py-24 sm:py-32">
       <div className="container-x">
-        <div className="max-w-2xl">
-          <p className="eyebrow">
-            <span className="h-px w-6 bg-brand-500" />
-            Hva kan vi hjelpe deg med?
-          </p>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-[2.75rem]">
-            Én leverandør for hele jobben
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-ink-500">
+        {/* Todelt seksjonstittel: overskrift til venstre, brødtekst til høyre */}
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
+          <div>
+            <p className="eyebrow">Hva kan vi hjelpe deg med?</p>
+            <h2 className="mt-5 text-4xl font-extrabold sm:text-5xl">
+              Én leverandør for
+              <br />
+              hele jobben.
+            </h2>
+          </div>
+          <p className="self-end text-lg leading-relaxed text-ink-600">
             Du slipper å ringe rundt til fem forskjellige firmaer. Vi tar
             transporten, ryddingen, rivingen og bortkjøringen – og leverer
             avfallet til godkjent mottak.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) =>
-            service.accent ? (
-              <AccentCard key={service.slug} service={service} />
-            ) : (
-              <PhotoCard key={service.slug} service={service} />
-            ),
-          )}
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <Card key={service.slug} service={service} />
+          ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-4 rounded-card border border-hairline bg-white p-8 text-center shadow-lift sm:flex-row sm:justify-between sm:text-left">
-          <div>
-            <p className="font-display text-lg font-bold">
+        <div className="mt-6 flex flex-col items-start gap-5 border-t border-hairline pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-ink-600">
+            <span className="font-bold text-ink-950">
               Finner du ikke det du leter etter?
-            </p>
-            <p className="mt-1 text-ink-500">
-              Vi tar de fleste oppdrag – ring oss, så finner vi ut av det sammen.
-            </p>
-          </div>
-          <a
-            href="#kontakt"
-            className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-brand-700"
-          >
+            </span>{" "}
+            Vi tar de fleste oppdrag – ring oss, så finner vi ut av det sammen.
+          </p>
+          <a href="#kontakt" className="btn-outline shrink-0">
             Spør oss
-            <ArrowIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>
       </div>

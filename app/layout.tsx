@@ -1,19 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { site, services } from "@/lib/site";
 import "./globals.css";
 
+// Én skriftfamilie for hele siden – roligere typografi og mindre nedlasting.
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
   display: "swap",
-  weight: ["600", "700", "800"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -107,7 +102,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nb" className={`${manrope.variable} ${inter.variable}`}>
+    <html lang="nb" className={manrope.variable}>
       <body>
         {children}
         <script

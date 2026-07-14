@@ -43,7 +43,16 @@ export const site = {
   },
 
   offer: "15 % rabatt på din første tjeneste",
+  experience: "Over 20 års erfaring",
 } as const;
+
+/** Nøkkeltall – vises som en tynn stripe under heltebildet. */
+export const facts = [
+  { value: "20+", label: "Års erfaring i bransjen" },
+  { value: "Oslo", label: "Og hele omegn" },
+  { value: "15 %", label: "Rabatt på første oppdrag" },
+  { value: "AS", label: "Registrert og forsikret" },
+] as const;
 
 export type Service = {
   slug: string;

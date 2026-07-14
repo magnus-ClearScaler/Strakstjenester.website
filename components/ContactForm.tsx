@@ -7,13 +7,14 @@ import { ArrowIcon, CheckIcon } from "./Icons";
 type Status = "idle" | "sender" | "ok" | "feil";
 
 const field =
-  "w-full rounded-xl border border-hairline bg-white px-4 py-3.5 text-ink-900 placeholder:text-ink-500/60 transition-colors focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10";
+  "w-full rounded-edge border border-hairline bg-sand px-4 py-3.5 text-ink-950 placeholder:text-ink-400 transition-colors focus:border-ink-950 focus:outline-none";
 
-const label = "block text-sm font-semibold text-ink-900";
+const label =
+  "block text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-500";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState("");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -53,14 +54,12 @@ export default function ContactForm() {
 
   if (status === "ok") {
     return (
-      <div className="flex h-full min-h-[28rem] flex-col items-center justify-center rounded-card border border-hairline bg-white p-10 text-center shadow-lift">
-        <span className="inline-flex size-16 items-center justify-center rounded-full bg-brand-50 text-brand-800">
-          <CheckIcon className="size-8" />
-        </span>
+      <div className="flex min-h-[30rem] flex-col items-center justify-center rounded-edge bg-white p-10 text-center">
+        <CheckIcon className="size-10 text-brand-700" />
         <h3 className="mt-6 font-display text-2xl font-bold">
           Takk for henvendelsen!
         </h3>
-        <p className="mt-3 max-w-sm text-ink-500">
+        <p className="mt-3 max-w-sm text-ink-600">
           Vi har mottatt meldingen din og tar kontakt så raskt vi kan – som
           regel innen 24 timer.
         </p>
@@ -68,7 +67,7 @@ export default function ContactForm() {
           Haster det?{" "}
           <a
             href="tel:+4797473951"
-            className="font-semibold text-brand-700 underline-offset-4 hover:underline"
+            className="font-bold text-brand-700 underline-offset-4 hover:underline"
           >
             Ring 97 47 39 51
           </a>
@@ -81,12 +80,12 @@ export default function ContactForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-card border border-hairline bg-white p-6 shadow-lift sm:p-8"
+      className="rounded-edge bg-white p-7 sm:p-9"
     >
-      <h3 className="font-display text-2xl font-bold">Be om pristilbud</h3>
-      <p className="mt-2 text-sm text-ink-500">
-        Fyll ut skjemaet, så tar vi kontakt. Helt uforpliktende.
-      </p>
+      <p className="eyebrow">Be om pristilbud</p>
+      <h3 className="mt-3 font-display text-2xl font-bold">
+        Helt uforpliktende.
+      </h3>
 
       {/* Honningkrukke – skjult for mennesker, fanger opp roboter */}
       <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
@@ -94,10 +93,10 @@ export default function ContactForm() {
         <input id="firma" name="firma" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <div className="mt-6 grid gap-5 sm:grid-cols-2">
+      <div className="mt-7 grid gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="navn" className={label}>
-            Navn <span className="text-brand-800">*</span>
+            Navn <span className="text-brand-700">*</span>
           </label>
           <input
             id="navn"
@@ -106,13 +105,13 @@ export default function ContactForm() {
             required
             autoComplete="name"
             placeholder="Ola Nordmann"
-            className={`mt-2 ${field}`}
+            className={`mt-2.5 ${field}`}
           />
         </div>
 
         <div>
           <label htmlFor="telefon" className={label}>
-            Telefon <span className="text-brand-800">*</span>
+            Telefon <span className="text-brand-700">*</span>
           </label>
           <input
             id="telefon"
@@ -122,13 +121,13 @@ export default function ContactForm() {
             inputMode="tel"
             autoComplete="tel"
             placeholder="900 00 000"
-            className={`mt-2 ${field}`}
+            className={`mt-2.5 ${field}`}
           />
         </div>
 
         <div>
           <label htmlFor="epost" className={label}>
-            E-post <span className="text-brand-800">*</span>
+            E-post <span className="text-brand-700">*</span>
           </label>
           <input
             id="epost"
@@ -137,7 +136,7 @@ export default function ContactForm() {
             required
             autoComplete="email"
             placeholder="ola@example.no"
-            className={`mt-2 ${field}`}
+            className={`mt-2.5 ${field}`}
           />
         </div>
 
@@ -149,10 +148,10 @@ export default function ContactForm() {
             id="tjeneste"
             name="tjeneste"
             defaultValue=""
-            className={`mt-2 appearance-none bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat ${field}`}
+            className={`mt-2.5 appearance-none bg-[length:1.1rem] bg-[right_1rem_center] bg-no-repeat ${field}`}
             style={{
               backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23616161' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")",
+                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")",
             }}
           >
             <option value="">Velg tjeneste (valgfritt)</option>
@@ -174,7 +173,7 @@ export default function ContactForm() {
             name="melding"
             rows={4}
             placeholder="Fortell kort hva du trenger hjelp til, og gjerne hvor du bor."
-            className={`mt-2 resize-y ${field}`}
+            className={`mt-2.5 resize-y ${field}`}
           />
         </div>
       </div>
@@ -182,10 +181,10 @@ export default function ContactForm() {
       {status === "feil" && (
         <p
           role="alert"
-          className="mt-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+          className="mt-6 rounded-edge border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
         >
           {error} Du kan også ringe oss på{" "}
-          <a href="tel:+4797473951" className="font-semibold underline">
+          <a href="tel:+4797473951" className="font-bold underline">
             97 47 39 51
           </a>
           .
@@ -195,15 +194,15 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sender"}
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-700 px-7 py-4 text-base font-semibold text-white shadow-lift transition-all hover:bg-brand-800 hover:shadow-lift-lg disabled:cursor-not-allowed disabled:opacity-60"
+        className="group btn-brand mt-8 w-full disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "sender" ? "Sender …" : "Send forespørsel"}
         {status !== "sender" && (
-          <ArrowIcon className="size-5 transition-transform group-hover:translate-x-0.5" />
+          <ArrowIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
         )}
       </button>
 
-      <p className="mt-4 text-center text-xs leading-relaxed text-ink-500">
+      <p className="mt-5 text-center text-xs leading-relaxed text-ink-500">
         Ved å sende inn samtykker du til at vi kan kontakte deg om
         forespørselen. Vi deler aldri opplysningene dine med andre.
       </p>

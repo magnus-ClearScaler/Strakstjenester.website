@@ -1,6 +1,5 @@
 import { faqs } from "@/lib/site";
 
-/** Rich result i Google-søk. */
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -13,22 +12,24 @@ const faqSchema = {
 
 export default function Faq() {
   return (
-    <section id="sporsmal" className="scroll-mt-24 bg-white py-20 sm:py-28">
+    <section
+      id="sporsmal"
+      className="scroll-mt-24 border-t border-hairline bg-sand py-24 sm:py-32"
+    >
       <div className="container-x">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
           <div>
-            <p className="eyebrow">
-              <span className="h-px w-6 bg-brand-500" />
-              Ofte stilte spørsmål
-            </p>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Godt å vite før du bestiller
+            <p className="eyebrow">Ofte stilte spørsmål</p>
+            <h2 className="mt-5 text-4xl font-extrabold sm:text-5xl">
+              Godt å vite
+              <br />
+              før du bestiller.
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-ink-500">
+            <p className="mt-6 text-lg leading-relaxed text-ink-600">
               Finner du ikke svaret? Ring{" "}
               <a
                 href="tel:+4797473951"
-                className="font-semibold text-brand-700 underline-offset-4 hover:underline"
+                className="font-bold text-brand-800 underline-offset-4 hover:underline"
               >
                 97 47 39 51
               </a>{" "}
@@ -37,20 +38,20 @@ export default function Faq() {
           </div>
 
           {/* Native details/summary: ingen JavaScript, full tastaturstøtte */}
-          <div className="divide-y divide-hairline border-y border-hairline">
+          <div>
             {faqs.map((f) => (
-              <details key={f.q} className="group py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-ink-900 [&::-webkit-details-marker]:hidden">
+              <details key={f.q} className="group border-t border-hairline py-6">
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-display text-lg font-bold text-ink-950 [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <span
                     aria-hidden
-                    className="relative size-5 shrink-0 text-brand-700"
+                    className="relative mt-2 size-4 shrink-0 text-brand-700"
                   >
-                    <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rounded-full bg-current" />
-                    <span className="absolute left-1/2 top-0 h-5 w-0.5 -translate-x-1/2 rounded-full bg-current transition-transform duration-300 group-open:rotate-90" />
+                    <span className="absolute left-0 top-1/2 h-px w-4 -translate-y-1/2 bg-current" />
+                    <span className="absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-current transition-transform duration-300 group-open:rotate-90" />
                   </span>
                 </summary>
-                <p className="mt-3 max-w-prose leading-relaxed text-ink-500">
+                <p className="mt-4 max-w-prose leading-relaxed text-ink-600">
                   {f.a}
                 </p>
               </details>

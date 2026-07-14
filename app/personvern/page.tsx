@@ -18,10 +18,7 @@ export default function Personvern() {
       <Header />
       <main className="pt-20">
         <div className="container-x max-w-3xl py-16 sm:py-24">
-          <p className="eyebrow">
-            <span className="h-px w-6 bg-brand-500" />
-            Juridisk
-          </p>
+          <p className="eyebrow">Juridisk</p>
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
             Personvernerklæring
           </h1>

@@ -1,83 +1,79 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Merkevarefarger (hentet fra eksisterende logo/profil) ---- */
+  /* ---- Merkevarefarger (fra logo/profil) ---- */
   --color-brand-50: #fef4ea;
   --color-brand-100: #fde6d2;
   --color-brand-200: #fbcaa2;
   --color-brand-300: #f9ab6d;
   --color-brand-400: #f79445;
-  --color-brand-500: #f5821f; /* primær */
+  --color-brand-500: #f5821f; /* primær – kun på mørk flate */
   --color-brand-600: #e06f12;
-  --color-brand-700: #bc5b08; /* hover / dyp */
+  --color-brand-700: #bc5b08; /* tekstbærende: 4,53:1 mot hvit */
   --color-brand-800: #94480a;
   --color-brand-900: #783c0d;
 
-  --color-ink-500: #616161;
-  --color-ink-600: #4a4a4a;
-  --color-ink-700: #333333;
-  --color-ink-800: #202020; /* profilens mørke */
-  --color-ink-900: #161719;
-  --color-ink-950: #0d0e10;
+  /* ---- Redaksjonell grunnpalett ---- */
+  --color-ink-400: #9aa1ac;
+  --color-ink-500: #6b7280;
+  --color-ink-600: #4b5563;
+  --color-ink-700: #2b313b; /* brødtekst */
+  --color-ink-800: #1e232c;
+  --color-ink-900: #171b22;
+  --color-ink-950: #14181f; /* mørke seksjoner */
 
-  --color-surface: #f9f9f9;
-  --color-hairline: #e7e7e7;
+  --color-sand: #f5f3ee; /* varm off-white */
+  --color-sand-dark: #efece4; /* alternerende flate */
+  --color-hairline: #e2ded4;
+  --color-hairline-dark: #ffffff1a;
 
   --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
-  --radius-card: 1rem;
-
-  --shadow-lift: 0 1px 2px rgb(13 14 16 / 0.04), 0 8px 24px -8px rgb(13 14 16 / 0.12);
-  --shadow-lift-lg: 0 2px 4px rgb(13 14 16 / 0.04), 0 24px 48px -12px rgb(13 14 16 / 0.18);
-
-  --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  /* Nesten skarpe hjørner – ingen «pille»-knapper */
+  --radius-edge: 4px;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* kompenserer for sticky header ved ankerlenker */
     scroll-padding-top: 5.5rem;
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-white text-ink-700 font-sans antialiased;
-    /* plass til sticky ring-baren på mobil */
-    padding-bottom: env(safe-area-inset-bottom);
+    @apply bg-sand text-ink-700 font-sans antialiased;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply font-display text-ink-900;
+    @apply font-display text-ink-950;
     text-wrap: balance;
+  }
+
+  /* Stram, redaksjonell displaytype */
+  h1 {
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+  }
+
+  h2 {
+    letter-spacing: -0.025em;
+    line-height: 1.05;
   }
 
   p {
     text-wrap: pretty;
   }
 
-  /* Tydelig fokusmarkering – tilgjengelighet */
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-brand-700;
   }
 
   ::selection {
-    @apply bg-brand-500 text-white;
+    @apply bg-ink-950 text-white;
   }
 }
 
@@ -86,13 +82,44 @@
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
 
-  /* Overskrift-etikett over seksjonstitler */
+  /* Seksjonsetikett: versaler, sperret – ingen strek. */
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-800;
+    @apply block text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-600;
+  }
+
+  .eyebrow-light {
+    @apply block text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70;
+  }
+
+  /* Knapper: sperrede versaler, nesten skarpe hjørner, ingen skygge.
+     Fellesstilen deles via en selektorgruppe – Tailwind v4 tillater ikke
+     @apply av en klasse som er definert i samme lag. */
+  .btn,
+  .btn-brand,
+  .btn-dark,
+  .btn-outline,
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-edge px-7 py-4
+           text-xs font-bold uppercase tracking-[0.14em] transition-colors duration-200;
+  }
+
+  .btn-brand {
+    @apply bg-brand-700 text-white hover:bg-brand-800;
+  }
+
+  .btn-dark {
+    @apply bg-ink-950 text-white hover:bg-ink-800;
+  }
+
+  .btn-outline {
+    @apply border border-ink-950/20 text-ink-950 hover:border-ink-950 hover:bg-ink-950 hover:text-white;
+  }
+
+  .btn-outline-light {
+    @apply border border-white/25 text-white hover:border-white hover:bg-white hover:text-ink-950;
   }
 }
 
-/* Respekter brukerens bevegelsespreferanser */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -101,7 +128,6 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
