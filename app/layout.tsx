@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Vi river, rydder og kjører bort avfallet – straks. Uforpliktende pristilbud i Oslo og omegn.",
     images: [
       {
-        url: "/bilder/hero-riving.webp",
+        url: "/bilder/hero-bil.webp",
         width: 1200,
         height: 630,
         alt: "Straks Tjenester AS – riving, rydding og bortkjøring i Oslo",
@@ -71,7 +71,7 @@ function structuredData() {
     url: site.url,
     telephone: `+47${site.phone.primary.display.replace(/\s/g, "")}`,
     email: site.email,
-    image: `${site.url}/bilder/hero-riving.webp`,
+    image: `${site.url}/bilder/hero-bil.webp`,
     logo: `${site.url}/logo.webp`,
     foundingDate: site.founded,
     vatID: `NO${site.orgnr.replace(/\s/g, "")}MVA`,

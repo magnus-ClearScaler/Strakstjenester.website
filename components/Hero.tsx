@@ -1,36 +1,39 @@
 import Image from "next/image";
 import { site, facts } from "@/lib/site";
-import { PhoneIcon, ArrowIcon } from "./Icons";
+import { PhoneIcon, ArrowIcon, RecycleIcon } from "./Icons";
 
 /**
- * Helflate heltebilde med teksten oppå.
- * Merk: bildelaget må ligge på z-0, ikke negativ z – seksjonen har en
- * ugjennomsiktig bakgrunn, og et negativt z-lag havner bak den og blir usynlig.
+ * Bilen er heltebildet, og den skal være lys og tydelig.
+ *
+ * Den kan ikke ligge BAK teksten: bilkassen er en stor hvit flate, og all
+ * tekst oppå den blir uleselig med mindre bildet mørklegges kraftig – da
+ * forsvinner bilen. Løsningen er å gi bilen sin egen halvdel i full høyde,
+ * uten mørkt slør, mens teksten står på en solid mørk flate ved siden av.
  */
 export default function Hero() {
   return (
     <>
-      <section className="relative flex min-h-[38rem] items-end overflow-hidden bg-ink-950 pt-20 lg:min-h-[44rem]">
-        <div className="absolute inset-0 z-0">
+      <section className="relative bg-ink-950 pt-20">
+        {/* Bilen: full høyde, helt ut til høyre kant. Kun en myk overgang
+            i venstre kant slik at den smelter inn i den mørke flaten. */}
+        <div className="absolute inset-y-0 right-0 hidden w-[52%] lg:block">
           <Image
-            src="/bilder/hero-riving.webp"
-            alt="Håndverker fra Straks Tjenester river en innervegg"
+            src="/bilder/hero-bil.webp"
+            alt="Lastebilen til Straks Tjenester klar for bortkjøring av avfall i Oslo"
             fill
             priority
             fetchPriority="high"
-            sizes="100vw"
+            sizes="52vw"
             className="object-cover object-center"
           />
-          {/* Gradientene sikrer at teksten holder AA-kontrast mot bildet */}
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/80 to-ink-950/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/30 to-ink-950/60" />
+          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-ink-950 to-transparent" />
         </div>
 
-        <div className="container-x relative z-10 py-16 sm:py-20 lg:py-24">
-          <div className="max-w-2xl">
+        <div className="container-x relative z-10 grid items-center gap-10 py-14 lg:grid-cols-2 lg:gap-16 lg:py-24">
+          <div>
             <p className="eyebrow-light">{site.experience} · Oslo og omegn</p>
 
-            <h1 className="mt-6 max-w-[14ch] text-5xl font-extrabold text-white sm:text-6xl xl:text-7xl">
+            <h1 className="mt-6 max-w-[13ch] text-5xl font-extrabold text-white sm:text-6xl">
               Vi river, rydder og kjører bort avfallet.{" "}
               <span className="text-white/40">Straks.</span>
             </h1>
@@ -50,6 +53,23 @@ export default function Hero() {
                 {site.phone.primary.display}
               </a>
             </div>
+
+            <p className="mt-8 flex items-center gap-2.5 text-sm text-white/60">
+              <RecycleIcon className="size-5 shrink-0 text-brand-500" />
+              Egne biler · vi sorterer og leverer til godkjent mottak
+            </p>
+          </div>
+
+          {/* Mobil/nettbrett: bilen som eget lyst felt under teksten */}
+          <div className="relative -mx-5 aspect-[16/10] sm:-mx-8 lg:hidden">
+            <Image
+              src="/bilder/hero-bil.webp"
+              alt="Lastebilen til Straks Tjenester klar for bortkjøring av avfall i Oslo"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
