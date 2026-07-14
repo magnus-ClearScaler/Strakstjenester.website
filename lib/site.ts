@@ -62,8 +62,6 @@ export type Service = {
   bullets: string[];
   image?: string;
   imageAlt?: string;
-  /** Fremhevet kort uten foto – brukes for tjenester vi ikke har bilde av ennå */
-  accent?: boolean;
 };
 
 export const services: Service[] = [
@@ -103,7 +101,9 @@ export const services: Service[] = [
       "Rengjøring etter oppussing",
       "Fast renhold for bedrift",
     ],
-    accent: true,
+    image: "/bilder/rengjoring.webp",
+    imageAlt:
+      "Renholder i arbeidsantrekk som rengjør møbeltrekk med profesjonelt utstyr",
   },
   {
     slug: "hageavfall",
