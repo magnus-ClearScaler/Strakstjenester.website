@@ -28,10 +28,8 @@ export default function About() {
 
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink-600">
               <p>
-                Straks Tjenester AS er et norsk aksjeselskap stiftet i{" "}
-                {site.founded}, med base på Beverkollen i Oslo. Personellet har
-                over 20 års samlet erfaring fra transport, riving og
-                avfallshåndtering.
+                Straks Tjenester holder til på Beverkollen i Oslo og har over 20
+                års samlet erfaring fra transport, riving og avfallshåndtering.
               </p>
               <p>
                 Vi tar oppdrag for både privatpersoner og bedrifter – fra én

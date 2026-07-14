@@ -22,8 +22,8 @@ const terms = [
     body: `${site.areaServed.slice(0, 5).join(", ")} og resten av Oslo-området. Utrykning ofte samme eller neste virkedag.`,
   },
   {
-    title: "Registrert og forsikret",
-    body: `Aksjeselskap med org.nr. ${site.orgnr} og ansvarsforsikring gjennom hele oppdraget. Stiftet i ${site.founded}, med over 20 års samlet bransjeerfaring.`,
+    title: "Ansvarsforsikret",
+    body: `Ansvarsforsikring gjennom hele oppdraget – både for arbeidet og for transporten. Org.nr. ${site.orgnr}.`,
   },
   {
     title: "Bedrift og rammeavtaler",

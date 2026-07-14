@@ -51,7 +51,7 @@ export const facts = [
   { value: "20+", label: "Års erfaring i bransjen" },
   { value: "Oslo", label: "Og hele omegn" },
   { value: "15 %", label: "Rabatt på første oppdrag" },
-  { value: "AS", label: "Registrert og forsikret" },
+  { value: "Forsikret", label: "Ansvarsforsikring på alle oppdrag" },
 ] as const;
 
 export type Service = {
@@ -170,6 +170,6 @@ export const faqs = [
   },
   {
     q: "Er dere forsikret?",
-    a: "Ja, Straks Tjenester AS er et registrert norsk aksjeselskap (org.nr. 928 659 720) med ansvarsforsikring. Du er trygg gjennom hele oppdraget.",
+    a: "Ja. Vi har ansvarsforsikring som gjelder gjennom hele oppdraget, både for arbeidet vi utfører og for transporten. Org.nr. 928 659 720.",
   },
 ] as const;
