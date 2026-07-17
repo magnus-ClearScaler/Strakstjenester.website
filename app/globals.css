@@ -130,4 +130,8 @@
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+  /* Bakgrunnsvideoen tas bort – plakatbildet under blir stående. */
+  .hero-video {
+    display: none;
+  }
 }
